@@ -1,0 +1,72 @@
+    {% extends 'base/base.html' %}
+{% load static %}
+{% block title %}
+    <title>公司简介</title>
+{% endblock %}
+
+{% block content %}
+    <section class="home-main-contant-style bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img class="img-responsive" src="{% static 'images/company.png' %}" alt="公司门户">
+                </div>
+
+                <div class="col-md-6">
+                    <div class="mb30"></div>
+                    <h5>欢迎您了解我们</h5>
+                    <h2 class="mb15"><strong>淄博汇创生物科技有限公司</strong></h2>
+                    <p>公司成立日期：2013年3月21日</p>
+                    <p>经营范围：谷物、油料、茎秆、糖浆原料、啤酒原料、酒精原料加工技术的研发、技术推广、技术服务；挤压设备的安装、调试、销售。</p>
+                    <p>创新平台和主要业绩：公司已经与山东理工大学农产品加工中心共同建设实验分析平台。</p>
+                    <p>创新平台：1、山东理工大已授权我公司独占实施申德超教授发明的12项发明专利技术。2、公司拥有实施上述发明的挤出设备（生产能力80kg/h-2000kg/h）的设计、制造、安装、调试、销售及技术服务能力。3、公司拥有一支以教授、博士、硕士和有经验的工程技术人员为基础的科技团队，该团队将挤出酶解技术应用在谷物、油料、茎秆、糖浆原料、啤酒原料、酒精原料加工技术的研发、推广和服务中，旨在简化现有技术的传统加工工艺过程、消除污染、降低成本、提高产量、生产生态绿色产品。</p>
+                    <p>主要业绩：1低温挤出酶解谷物中淀粉，挤出物用作玉米淀粉糖浆原料、啤酒辅料、生产酒精的原料。2 低温挤压酶解谷物中蛋白质，生产分离蛋白粉和蛋白多肽； 3 低温挤压大豆浸油，2009年鉴定，达到国际领先水平。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="home-main-contant-style bg-white">
+        <div class="container">
+            <div class="cd-home-title">
+                <h2>企业文化</h2>
+                <p>顾客就是上帝，万事顾客最大！</p>
+            </div>
+            <div class="service-item text-center">
+                <ul class="lists-item mb30">
+                    <li><i class="fa fa-check" style="font-size: x-large">一切皆有可能一切皆有可能一切皆有可能一切皆有可能一切皆有可能</i></li>
+                    <li><i class="fa fa-check" style="font-size: x-large">一切皆有可能一切皆有可能一切皆有可能一切皆有可能一切皆有可能</i></li>
+                    <li><i class="fa fa-check" style="font-size: x-large">一切皆有可能一切皆有可能一切皆有可能一切皆有可能一切皆有可能</i></li>
+                    <li><i class="fa fa-check" style="font-size: x-large">一切皆有可能一切皆有可能一切皆有可能一切皆有可能一切皆有可能</i></li>
+                    <li><i class="fa fa-check" style="font-size: x-large">一切皆有可能一切皆有可能一切皆有可能一切皆有可能一切皆有可能</i></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="home-main-contant-style" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6" id="map" style="width:570px;height:500px;border:#ccc solid 1px;font-size:12px"></div>
+                <div class="col-md-6">
+                    <div class="headline-left mb30">
+                        <h2 class="headline-brd">联系方式</h2>
+                        <p>公司本着以顾客为上帝的理念，只要您联系我们，了解我们，您就是我们的贵宾。我们将全力为您解答您的各种疑惑。</p>
+                    </div>
+                    <ul class="lists-item mb30">
+                        <li>联系人：申教授</li>
+                        <li>电话：（+86）138-6937-1960</li>
+                        <li>电子邮件：shendc@126.com</li>
+                        <li>邮编：255000</li>
+                        <li>地址：淄博高新区四宝山街道办事处东张村工业园</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=LSDGmwddtvMHxHGX7Io0fVpIoCe0cOuG"></script>
+    <script type="text/javascript" src="{% static 'js/baidu-map.js' %}"></script>
+{% endblock %}

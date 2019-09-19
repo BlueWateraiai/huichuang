@@ -1,0 +1,26 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>新闻详情</title>
+{% endblock %}
+
+{% block content %}
+    <section class="home-main-contant-style">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="panel-title text-center">
+                    <strong class="text-primary" style="font-size: 20px">{{ new.title }}</strong>
+                </div>
+                <div class="text-center">
+                    <span class="glyphicon glyphicon-user"></span>作者:&nbsp{{ new.author }}&nbsp&nbsp&nbsp
+                    <span class="glyphicon glyphicon-time"></span>发布时间:&nbsp{{ new.date }}&nbsp&nbsp&nbsp
+                    <span class="glyphicon glyphicon-globe"></span>分类:&nbsp{{ new.classify.classify}}&nbsp&nbsp&nbsp
+                </div>
+            </div>
+            <div class="panel-body">
+                <p class="text-center" style="height: 500px">{{ new.body }}</p>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,148 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        {% block title %}{% endblock %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="汇创、汇创生物、糖浆、汇创糖浆"/>
+        <meta name="description" content="">
+        <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/x-icon"/>
+
+        {% block css %}{% endblock %}
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/header.css' %}">
+        <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+        <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+        <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+        <link rel="stylesheet" href="{% static 'plugins/FlexSlider/jquery.flexslider.css' %}">
+        <link rel="stylesheet" href="{% static 'plugins/owl-carousel/owl.carousel.css' %}">
+        <link rel="stylesheet" href="{% static 'plugins/owl-carousel/owl.theme.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/cubeportfolio.min.css' %}">
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="header sticky-header">
+                {% include 'base/navbar.html' %}
+            </div>
+
+            {% block content %}{% endblock %}
+
+            <footer class="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="widget">
+                                <h6 class="text-uppercase bottom-line">信誉保证</h6>
+                                <div class="footer-logo mb15"><img src="{% static 'images/favicon.png' %}" alt="Logo" class="img-responsive" /></div>
+                                <p>汇创生物，创造价值</p>
+                                <p>汇创生物，提供保障</p>
+                                <p>汇创生物，安全放心</p>
+                                <p>汇创生物，安全放心</p>
+                                <p>汇创生物，安全放心</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="widget">
+                                <h6 class="montserrat text-uppercase bottom-line">公司动态</h6>
+                                <ul class="icons-list">
+                                      {% for news in newslist %}
+                                     <li><a href="{% url 'article' news.id %}">{{ news.title}} <span class="pull-right">{{ news.date}}</span></a></li>
+                                     {% empty %}
+                                     <li>没有内容</li>
+                                     {% endfor %}
+                                </ul>
+                                <a href="{% url 'list' %}#contact">更多动态</a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="widget">
+                                <h6 class="text-uppercase bottom-line">品牌资质</h6>
+                                <ul class="recent-posts">
+                                    <li>
+                                        <div class="widget-posts-image">
+                                            <a href="#"><img src="{% static 'images/certificate/1.png' %}" alt=""></a>
+                                        </div>
+                                        <div class="widget-posts-body">
+                                            <h6 class="widget-posts-title"><a href="#">国家科学技术进步奖</a></h6>
+                                            <div class="widget-posts-meta">2016-11-12</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="widget-posts-image">
+                                            <a href="#"><img src="{% static 'images/certificate/2.png' %}" alt=""></a>
+                                        </div>
+                                        <div class="widget-posts-body">
+                                            <h6 class="widget-posts-title"><a href="#">山东省科学技术奖</a></h6>
+                                            <div class="widget-posts-meta">2016-06-12</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="#">了解更多实力</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="widget">
+                                <h6 class="text-uppercase bottom-line">公司简介</h6>
+                                <address>
+                                    <p>淄博汇创生物科技有限公司</p>
+                                    <p>地址：淄博高新区四宝山街道办事处东张村工业园</p>
+                                    <p>电话：（+86）138-6937-1960</p>
+                                    <p>邮箱: shendc@126.com</p>
+                                    <p>邮编：255000</p>
+                                </address>
+                                <hr>
+                                <a href="{% url 'about' %}#contact">详细介绍</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright">
+                        <div class="text-center">
+                            <p>淄博汇创生物科技有限公司 &nbsp; &nbsp; Copyright &copy; 备案号：XXXXXXXXXXXXXXXXXXX</p>
+                        </div>
+                    </div>
+            </footer>
+        </div>
+
+        {% block js %}{% endblock %}
+        <script type="text/javascript"  src="{% static 'js/jquery.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+
+        <!-- OWL CAROUSEL -->
+        <script type="text/javascript" src="{% static 'plugins/owl-carousel/owl.carousel.min.js' %}"></script>
+        <!-- COUNTER UP -->
+        <script type="text/javascript" src="{% static 'js/jquery.counterup.min.js' %}"></script>
+        <!-- WAYPOINTS -->
+        <script type="text/javascript" src="{% static 'js/waypoints.min.js' %}"></script>
+        <!-- FLEXSLIDER -->
+        <script type="text/javascript" src="{% static 'plugins/FlexSlider/jquery.flexslider-min.js' %}"></script>
+        <!-- MAGNIFIC POPUP-->
+        <script type="text/javascript" src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+        <!-- MAGNIFIC POPUP  -->
+        <script type="text/javascript" src="{% static 'js/magnific-popup.min.js' %}"></script>
+        <!-- CUBE PORTFOLIO -->
+        <script type="text/javascript" src="{% static 'js/jquery.cubeportfolio.min.js' %}"></script>
+        <!-- CUBE PORTFOLIO -->
+        <script type="text/javascript" src="{% static 'js/cubeportfolio/portfolio-masonry-4col.js' %}"></script>
+        <!-- CUBE TESTIMONIALS -->
+        <script type="text/javascript" src="{% static 'js/cubeportfolio/testimonials.js' %}"></script>
+        <!-- CUBE TEAM -->
+        <script type="text/javascript" src="{% static 'js/cubeportfolio/team.js' %}"></script>
+        <!-- CUBE BLOG -->
+        <script type="text/javascript" src="{% static 'js/cubeportfolio/blog-grid-3col.js' %}"></script>
+        <!-- CUSTOM-->
+        <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+        <!--[if lt IE 9]>
+        <script src="respond.js"></script>
+        <script src="html5shiv.js"></script>
+        <![endif]-->
+    </body>
+</html>

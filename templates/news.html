@@ -1,0 +1,45 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}
+    <title>新闻媒体</title>
+{% endblock %}
+
+{% block content %}
+    <section class="home-main-contant-style">
+        <div class="container">
+            <div class="cd-home-title">
+                <h2>公司动态</h2>
+            </div>
+            <div class="col-md-3">
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="#">公司动态</a></li>
+                    <li class="list-group-item"><a href="#">媒体聚焦</a></li>
+                    <li class="list-group-item"><a href="#">营养健康</a></li>
+                </ul>
+                <div>
+                    <img src="{% static 'images/company.png' %}">
+                </div>
+            </div>
+            <div class="col-md-9">
+                <ul class="icons-list">
+                      {% for news in newslist %}
+                       <li><a href="{% url 'article' news.id %}">{{ news.title}} <span class="pull-right">{{ news.date}}</span></a></li>
+                          {% empty %}
+                             <li>没有内容</li>
+                      {% endfor %}
+{#                    <li><a href="{% url 'article' %}">奖励公司优秀员工 <span class="pull-right">2018-12-15</span></a></li>#}
+{#                    <li><a href="#">元旦公司活动 <span class="pull-right">2018-12-15</span></a></li>#}
+{#                    <li><a href="#">新技术获得国家科技奖 <span class="pull-right">2018-12-15</span></a></li>#}
+{#                    <li><a href="#">XXXXXX <span class="pull-right">2018-12-15</span></a></li>#}
+{#                    <li><a href="#">XXXXXX <span class="pull-right">2018-12-15</span></a></li>#}
+{#                    <li><a href="#">奖励公司优秀员工 <span class="pull-right">2018-12-15</span></a></li>#}
+{#                    <li><a href="#">元旦公司活动 <span class="pull-right">2018-12-15</span></a></li>#}
+{#                    <li><a href="#">新技术获得国家科技奖 <span class="pull-right">2018-12-15</span></a></li>#}
+{#                    <li><a href="#">XXXXXX <span class="pull-right">2018-12-15</span></a></li>#}
+{#                    <li><a href="#">XXXXXX <span class="pull-right">2018-12-15</span></a></li>#}
+                </ul>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

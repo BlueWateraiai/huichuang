@@ -1,0 +1,24 @@
+{% load static %}
+<div class="navbar navbar-default navbar-fixed-top mega-menu" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="fa fa-bars"></span>
+            </button>
+            <a class="navbar-brand" href="{% url 'index' %}">
+                <img id="logo-header" src="{% static 'images/logo.png' %}" alt="Logo" />
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse mega-menu navbar-responsive-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="{% url 'index' %}">首页</a></li>
+                <li><a href="{% url 'about' %}">关于我们</a></li>
+                <li><a href="{% url 'list' %}">产品服务</a></li>
+                <li><a href="{% url 'news' %}">媒体新闻</a></li>
+                <li><a href="{% url 'job' %}">招贤纳士</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
