@@ -21,8 +21,98 @@
         <link rel="stylesheet" href="{% static 'plugins/owl-carousel/owl.carousel.css' %}">
         <link rel="stylesheet" href="{% static 'plugins/owl-carousel/owl.theme.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/cubeportfolio.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/test.css' %}">
+
+         <style>
+             .navbar-fixed-bottom, .navbar-fixed-top {
+    position: relative;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+             #topt {
+	    height: 29px;
+	    _height: 29px;
+	    line-height: 29px;
+	    width: 1000px;
+	    margin: 0 auto;
+	    color: #9a9cec;
+      }
+      .toptleft {
+    float: left;
+    width: 350px;
+}
+.toptright {
+    float: right;
+    width: 355px;
+    padding-right: 3px;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+div {
+    display: block;
+}
+#topm {
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#topm .mainm a {
+    color: #9acdec;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    _width: 88px;
+    width: 88px;
+}
+#topt {
+    height: 29px;
+    _height: 29px;
+    line-height: 29px;
+    width: 1000px;
+    margin: 0 auto;
+    color: #9acdec;
+    font-size: 12px;
+}
+body {
+    background: url(../../static/images/bg.jpg) repeat-x top #fff;
+    font-family: "å¾®è½¯é›…é»‘", Arial, Helvetica, sans-serif;
+    font-size: 100%;
+    color: #333;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+.container {
+    width: 1170px;
+}
+
+             .nav>li {
+    position: relative;
+    display: block;
+    border-right: 1px #f5f5f5 solid;
+}
+.nav .list a:hover{
+    color: #00a834;
+}
+
+             table, th, td {
+    border: 1px solid white;
+}
+         </style>
     </head>
     <body>
+                     <div id="topt">
+                    <div class="toptleft">欢迎来到汇创生物科技有限公司 官网</div>
+                  <div class="toptright">
+                  <ul id="topm">
+                    <li class="mainm"><a href="/alone/alone.php?id=25">联系我们</a></li>
+                  </ul>
+                 </div>
+              </div>
         <div class="wrapper">
             <div class="header sticky-header">
                 {% include 'base/navbar.html' %}
