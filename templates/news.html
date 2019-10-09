@@ -8,6 +8,10 @@
             float: left;
             width: 700px;
         }
+            #page{
+                padding-top: 50px;
+                padding-left: 230px;
+            }
         </style>
     </head>
     <title>新闻媒体</title>
@@ -25,9 +29,9 @@
                             <div id="PARENT">
                                <ul id="menu">
 
-                                <li><a href="/alone/alone.php?id=20">公司动态</a>
+                                <li><a href="{% url 'newsinfo' 20 %}">公司动态</a>
                                             </li>
-                                        <li><a href="/alone/alone.php?id=25">技术研究推广</a>
+                                        <li><a href="{% url 'newsinfo' 13 %}">技术研究推广</a>
                                             </li>
                                       </ul>
 
@@ -36,21 +40,57 @@
                           <div class="clear"></div>
                         </div>
                         <div class="tu">
-                        <img src="../static/images/about/corn2.jpg">
+                        <img src="{% static 'images/about/corn2.jpg' %}">
                         </div>
               </div>
-              <div class="right">
-                        <div class="r_title">媒体新闻</div>
+		               <div class="right">
+                        <div class="r_title">媒体新闻->{{ ctopic.text }}</div>
                         <div class="r_con">
-                            <div class="list5">
-                                 <ul class="icons-list">>
-                                     {% for news in newslist %}
-                                     <li><a href="{% url 'article' news.id %}">{{ news.title}} <span class="pull-right">{{ news.date}}</span></a></li>
+                           {% if ctopic.id == 13 %}
+                               <table width="100%">
+                                        <tbody>
+                                           <tr>
+                                               {% for new in infolist %}
+                                               <td>
+                                                        <p>
+                                                          &nbsp; &nbsp; &nbsp; &nbsp;{{ new.text }} <img src="{% static '/media/' %}{{ new.pic }}" style="margin-left: 10px; float: right; width: 259px;height: 198px"><br>
+                                                        </p>
+
+                                               </td>
+                                               {% endfor %}
+                                           </tr>
+                                      </tbody>
+                               </table>
+                           {% else %}
+                               <div class="list5">
+                                 <ul class="icons-list">
+                                     {% for news in contacts %}
+                                         <li><a href="{% url 'article' news.id %}">{{ news.title}} <span class="pull-right">{{ news.date}}</span></a></li>
                                     {% empty %}
                                     <li>没有内容</li>
                                      {% endfor %}
                                  </ul>
-                            </div>
+                                    <ul class="pagination" id="page">
+                                            {% if contacts.has_previous %}
+                                               <li> <a href="?page=1">&laquo; 首页</a></li>
+                                               <li> <a href="?page={{ contacts.previous_page_number }}">上一页</a></li>
+                                            {% endif %}
+
+{#                                            <span class="current">#}
+{#                                                Page {{ contacts.number }} of {{ contacts.paginator.num_pages }}.#}
+{#                                            </span>#}
+                                            {% for number in listnumber %}
+                                                <li><a href="?page={{ number }}">{{ number }}</a></li>
+                                            {% endfor %}
+
+                                            {% if contacts.has_next %}
+                                                <li> <a href="?page={{ contacts.next_page_number }}">下一页</a></li>
+                                                <li><a href="?page={{ contacts.paginator.num_pages }}">尾页 &raquo;</a></li>
+                                            {% endif %}
+                                    </ul>
+                               </div>
+                           {% endif %}
+
                         </div>
                         <div class="clear"></div>
               </div>

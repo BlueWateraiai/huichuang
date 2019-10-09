@@ -2,24 +2,59 @@
 {% load static %}
 
 {% block title %}
+    <head>
+    <link rel="stylesheet" href="{% static 'css/about.css'%}"/>
+    </head>
     <title>新闻详情</title>
 {% endblock %}
 
 {% block content %}
-    <section class="home-main-contant-style">
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                <div class="panel-title text-center">
-                    <strong class="text-primary" style="font-size: 20px">{{ new.title }}</strong>
-                </div>
-                <div class="text-center">
-                    <span class="glyphicon glyphicon-user"></span>作者:&nbsp{{ new.author }}&nbsp&nbsp&nbsp
-                    <span class="glyphicon glyphicon-time"></span>发布时间:&nbsp{{ new.date }}&nbsp&nbsp&nbsp
-                    <span class="glyphicon glyphicon-globe"></span>分类:&nbsp{{ new.classify.classify}}&nbsp&nbsp&nbsp
-                </div>
-            </div>
-            <div class="panel-body">
-                <p class="text-center" style="height: 500px">{{ new.body }}</p>
+ <section class="home-main-contant-style bg-white" id="top">
+         <div class="container" id="allcontent">
+            <div id="wrapper">
+              <div class="left">
+                        <div class="left_box">
+                          <div class="left_title">媒体新闻</div>
+                          <div class="left_cont">
+                            <script src="js/test.js" type="text/javascript"></script>
+                            <div id="PARENT">
+                               <ul id="menu">
+
+                                <li><a href="{% url 'newsinfo' 20 %}">公司动态</a>
+                                            </li>
+                                        <li><a href="{% url 'newsinfo' 13 %}">技术研究推广</a>
+                                            </li>
+                                      </ul>
+
+                            </div>
+                          </div>
+                          <div class="clear"></div>
+                        </div>
+                        <div class="tu">
+                        <img src="{% static 'images/about/corn2.jpg' %}">
+                        </div>
+              </div>
+		               <div class="right">
+                        <div class="r_title">媒体新闻->公司动态->{{ new.title }}</div>
+                        <div class="r_con">
+
+                            <div class="panel-heading">
+                                <div class="panel-title text-center">
+                                        <strong class="text-primary" style="font-size: 20px">{{ new.title }}</strong>
+                                </div>
+                                <div class="text-center">
+{#                                        <span class="glyphicon glyphicon-user"></span>作者:&nbsp{{ new.author }}&nbsp&nbsp&nbsp#}
+                                        <span class="glyphicon glyphicon-time"></span>发布时间:&nbsp{{ new.date }}&nbsp&nbsp&nbsp
+                                        <span class="glyphicon glyphicon-globe"></span>分类:&nbsp{{ new.classify.classify}}&nbsp&nbsp&nbsp
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                    <p class="text-center" style="height: 500px">{{ new.body }}</p>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+              </div>
+              <div class="clear"></div>
             </div>
         </div>
     </section>

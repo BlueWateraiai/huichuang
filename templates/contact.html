@@ -1,0 +1,131 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}
+    <title>联系方式</title>
+    <head>
+    <link rel="stylesheet" href="{% static 'css/about.css'%}"/>
+    <style>
+        #lianxi{
+               padding-top: 20px;
+        }
+    </style>
+
+    </head>
+{% endblock %}
+
+{% block content %}
+   <section class="home-main-contant-style bg-white" id="top">
+           <div class="container" id="allcontent">
+            <div id="wrapper">
+              <div class="left">
+                        <div class="left_box">
+                          <div class="left_title">关于我们</div>
+                          <div class="left_cont">
+                            <script src="js/test.js" type="text/javascript"></script>
+                            <div id="PARENT">
+		                               <ul id="menu">
+
+                                <li><a href="/alone/alone.php?id=20">公司简介</a>
+                                            </li>
+                                        <li><a href="/alone/alone.php?id=86">公司文化</a>
+                                        </li>
+                                        <li><a href="/article/article.php?id=23">品牌与资质</a>
+                                            </li>
+                                        <li><a href="/alone/alone.php?id=87">资源与优势</a>
+                                            </li>
+                                        <li><a href="/alone/alone.php?id=25">联系方式</a>
+                                            </li>
+                                      </ul>
+
+                            </div>
+                          </div>
+                          <div class="clear"></div>
+                        </div>
+                        <div class="tu">
+                        <img src="../static/images/about/corn2.jpg">
+                        </div>
+              </div>
+              <div class="right">
+                        <div class="r_title">关于我们->联系方式</div>
+                  <div class="container">
+                            <div class="row">
+                                <div id="map" style="width:550px;height:450px;border:#ccc solid 1px;font-size:12px"></div>
+                                <div id="lianxi">
+                                    <ul >
+                                        <li>联系人：申教授</li>
+                                        <li>电话：（+86）138-6937-1960</li>
+                                        <li>电子邮件：shendc@126.com</li>
+                                        <li>邮编：255000</li>
+                                        <li>地址：淄博高新区四宝山街道办事处东张村工业园</li>
+                                    </ul>
+                                </div>
+                            </div>
+                  </div>
+              </div>
+              <div class="clear"></div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=LSDGmwddtvMHxHGX7Io0fVpIoCe0cOuG"></script>
+      <script type="text/javascript">
+    //创建和初始化地图函数：
+    function initMap(){
+      createMap();//创建地图
+      setMapEvent();//设置地图事件
+      addMapControl();//向地图添加控件
+      addMapOverlay();//向地图添加覆盖物
+    }
+    function createMap(){
+      map = new BMap.Map("map");
+      map.centerAndZoom(new BMap.Point(118.075691,36.852679),19);
+    }
+    function setMapEvent(){
+      map.enableScrollWheelZoom();
+      map.enableKeyboard();
+      map.enableDragging();
+      map.enableDoubleClickZoom()
+    }
+    function addClickHandler(target,window){
+      target.addEventListener("click",function(){
+        target.openInfoWindow(window);
+      });
+    }
+    function addMapOverlay(){
+      var markers = [
+        {content:"经营范围：谷物、油料、茎秆、糖浆原料、啤酒原料、酒精原料加工技术的研发、技术推广、技术服务；挤压设备的安装、调试、销售",title:"淄博汇创生物科技有限公司",imageOffset: {width:0,height:3},position:{lat:36.853238,lng:118.076325}}
+      ];
+      for(var index = 0; index < markers.length; index++ ){
+        var point = new BMap.Point(markers[index].position.lng,markers[index].position.lat);
+        var marker = new BMap.Marker(point,{icon:new BMap.Icon("http://api.map.baidu.com/lbsapi/creatmap/images/us_mk_icon.png",new BMap.Size(20,25),{
+          imageOffset: new BMap.Size(markers[index].imageOffset.width,markers[index].imageOffset.height)
+        })});
+        var label = new BMap.Label(markers[index].title,{offset: new BMap.Size(25,5)});
+        var opts = {
+          width: 200,
+          title: markers[index].title,
+          enableMessage: false
+        };
+        var infoWindow = new BMap.InfoWindow(markers[index].content,opts);
+        marker.setLabel(label);
+        addClickHandler(marker,infoWindow);
+        map.addOverlay(marker);
+      };
+    }
+    //向地图添加控件
+    function addMapControl(){
+      var scaleControl = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
+      scaleControl.setUnit(BMAP_UNIT_IMPERIAL);
+      map.addControl(scaleControl);
+      var navControl = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+      map.addControl(navControl);
+      var overviewControl = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:true});
+      map.addControl(overviewControl);
+    }
+    var map;
+      initMap();
+  </script>
+{% endblock %}

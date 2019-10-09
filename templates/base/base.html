@@ -102,6 +102,10 @@ ul, ol {
              table, th, td {
     border: 1px solid white;
 }
+
+             #fontsize{
+                 font-size: 12px;
+             }
          </style>
     </head>
     <body>
@@ -120,7 +124,7 @@ ul, ol {
 
             {% block content %}{% endblock %}
 
-            <footer class="footer">
+            <footer class="footer" id="fontsize">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3 col-sm-6 col-xs-12">
@@ -145,7 +149,7 @@ ul, ol {
                                      <li>没有内容</li>
                                      {% endfor %}
                                 </ul>
-                                <a href="{% url 'list' %}#contact">更多动态</a>
+                                <a href="{% url 'newsinfo' 20%}">更多动态</a>
                             </div>
                         </div>
 

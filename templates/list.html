@@ -20,19 +20,19 @@
                             <div id="PARENT">
                                <ul id="menu">
 
-                                        <li><a href="/alone/alone.php?id=20">葡萄糖浆系</a>
+                                        <li><a href="{% url 'listinfo' 6 %}">葡萄糖浆系</a>
                                             </li>
-                                        <li><a href="/alone/alone.php?id=86">麦芽糖浆系</a>
+                                        <li><a href="{% url 'listinfo' 7 %}">麦芽糖浆系</a>
                                               </li>
-                                        <li><a href="/article/article.php?id=23">果葡糖浆系</a>
+                                        <li><a href="{% url 'listinfo' 8 %}">果葡糖浆系</a>
                                             </li>
-                                        <li><a href="/alone/alone.php?id=87">低温挤出酶解糖浆原料</a>
+                                        <li><a href="{% url 'listinfo' 9 %}">低温挤出酶解糖浆原料</a>
                                             </li>
-                                   <li><a href="/alone/alone.php?id=87">酒精原料生产淀粉糖工艺</a>
+                                   <li><a href="{% url 'listinfo' 10 %}">酒精原料生产淀粉糖工艺</a>
                                             </li>
-                                   <li><a href="/alone/alone.php?id=87">酒精原料生产酒精工艺</a>
+                                   <li><a href="{% url 'listinfo' 11 %}">酒精原料生产酒精工艺</a>
                                             </li>
-                                        <li><a href="/alone/alone.php?id=88">单螺杆挤压设备</a>
+                                        <li><a href="{% url 'listinfo' 12 %}">单螺杆挤压设备</a>
                                             </li>
                                       </ul>
 
@@ -41,32 +41,30 @@
                           <div class="clear"></div>
                         </div>
                         <div class="tu">
-                        <img src="../static/images/about/corn2.jpg">
+                        <img src="{% static 'images/about/corn2.jpg' %}">
                         </div>
               </div>
               <div class="right">
-                        <div class="r_title">产品服务</div>
-                        <div class="r_con">
+                  <div class="r_title">产品服务->{{ ctopic.text }}</div>
+                  <div class="r_con">
 
-                     <table width="100%">
-                        <tbody><tr><td><p>
-                        <img src="../static/images/about/about.jpg" style="margin-left: 10px; float: left;width: 212px;height: 198px;">&nbsp; &nbsp; &nbsp; &nbsp;保龄宝生物股份有限公司创建于1997年，简称“保龄宝”、“保龄宝生物”。是以生物多糖为主导的"国家级重点高新技术企业"、农业产业化国家重点龙头企业。国内首家实现低聚糖工业化生产、国内同行业首家A股上市公司。业内率先通过美国FDA现场审核。 <img src="../static/images/about/corn.jpg" style="margin-left: 10px; float: right;"><br>
-                        &nbsp; &nbsp; &nbsp; &nbsp;建有国家认定企业技术中心、国家糖工程研究中心、国家地方联合工程实验室等科研机构，设有院士工作站、博士后工作站及“泰山学者”岗位，构建形成了“创意、创新、创造、创领、创客”五位一体的创新体系。低聚麦芽糖、高纯度低聚异麦芽糖、发酵法谷氨酰胺等3种产品先后填补国内空白，有40多项发明专利获得国家授权，主持或参与制定国际、国家标准20余项，是中国功能糖产业当之无愧的奠基人和领军者。<br>
-                        &nbsp; &nbsp; &nbsp; &nbsp;公司立足现货业务开发金融属性，立足实体平台开发资本属性，立足核心业务开发产业属性。通过合资合作和业务扩展，产业链条已覆盖生物制造、特医保健食品、金融、进出口、饲料、检测服务等多个领域。先后被评为中国轻工业百强企业、中国营养健康产业30强企业、中国淀粉糖行业20强企业、两化融合管理体系贯标企业、国家知识产权优势企业；“保龄宝”品牌被认定为“中国驰名商标”和“山东省著名商标”，列入首批山东省知名农产品品牌。</p>
-                    <p>
-                        &nbsp;</p>
-                    <p>
-{#                        <img alt="" src="../static/images/about/about.jpg" style="width: 738px; height: 314px;"></p>#}
-                    </td></tr>
-                      </tbody></table>
+                         <table width="100%">
+                                <tbody>
+                                   <tr>
+                                       {% for service in infolist %}
+                                       <td>
+                                                <p>
+                                                  &nbsp; &nbsp; &nbsp; &nbsp;{{ service.text }} <img src="{% static '/media/' %}{{ service.pic }}" style="margin-left: 10px; float: right; width: 259px;height: 198px"><br>
+                                                </p>
 
-                      <div class="page_fy" style="float:none;margin-left:300px;">
-                          </div>
-                      <div class="clear"></div>
-                        </div>
-                        <div class="clear"></div>
-              </div>
-              <div class="clear"></div>
+                                       </td>
+                                       {% endfor %}
+                                   </tr>
+                              </tbody>
+                         </table>
+
+                  </div>
+                  <div class="clear"></div>
             </div>
         </div>
     </section>
